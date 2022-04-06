@@ -1,0 +1,95 @@
+.style {
+    text-decoration: none;
+
+}
+
+.style:hover {
+    color: darkmagenta;
+}
+.style:active {
+    color: #3caa3c;
+}
+.menu {
+    display: inline-block;
+    position: fixed;
+    position: absolute;
+    list-style:none;
+    padding: 50px;
+    margin: 0;
+    box-sizing: border-box;
+    width: 200px;
+    top: 0;
+    left: -200px;
+    transition: left .2s;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+}
+
+.hiddenmenuticker {
+    display: none;
+
+
+}
+
+.btnMenu {
+    color: #fff;
+    background-color: green;
+    padding: 5px;
+    position: fixed;
+    position: absolute;
+
+    top: 5%;
+    left: 0;
+    cursor: pointer;
+    transition: left .23s;
+    z-index: 1000;
+    width: 25px;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    bottom:0;
+    height: 25px;
+
+
+
+
+}
+
+
+.btnMenu span {
+    display: block;
+    height: 5px;
+    background-color: #fff;
+    margin: 5px 0 0;
+    transition: all .1s linear .23s;
+    position: relative;
+
+}
+.btnMenu span.first {
+    margin-top: 0;
+}
+
+
+
+.hiddenmenuticker:checked ~ .btnMenu {
+                                                                                                                                                                                          left: 160px;
+                                                                                                                                                                                      }
+.hiddenmenuticker:checked ~ .menu {
+    left: 0;
+}
+.hiddenmenuticker:checked ~ .btnMenu span.first {
+    -webkit-transform: rotate(45deg);
+    top: 10px;
+}
+.hiddenmenuticker:checked ~ .btnMenu span.second {
+    opacity: 0;
+}
+.hiddenmenuticker:checked ~ .btnMenu span.third {
+    -webkit-transform: rotate(-45deg);
+    top: -10px;
+}
+
+.header {
+height: 100px;
+
+
+}

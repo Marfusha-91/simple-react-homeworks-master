@@ -1,0 +1,33 @@
+.someClass {
+
+}
+
+.error {
+    color: red;
+    height: 15px;
+    margin-left: 10px;
+
+
+}
+
+.errorInput { background: aqua;
+              color: blue;
+              outline: none;
+              border: 2px solid red;
+}
+
+.greeting {
+    display: flex;
+    align-items: flex-start;
+
+
+
+}
+
+.classButton {
+    margin-top: 2px;
+}
+
+.totalUsers {
+
+}
