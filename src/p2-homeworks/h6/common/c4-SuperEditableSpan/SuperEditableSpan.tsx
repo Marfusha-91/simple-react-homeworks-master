@@ -1,5 +1,6 @@
-import React, {DetailedHTMLProps, InputHTMLAttributes, HTMLAttributes, useState} from 'react'
+import React, {DetailedHTMLProps, InputHTMLAttributes, HTMLAttributes, useState, KeyboardEvent} from 'react'
 import SuperInputText from '../../../h4/common/c1-SuperInputText/SuperInputText'
+import s from './SuperEditableSpan.module.css'
 
 // тип пропсов обычного инпута
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
@@ -13,6 +14,7 @@ type SuperEditableSpanType = DefaultInputPropsType & { // и + ещё пропс
     onEnter?: () => void
     error?: string
     spanClassName?: string
+
 
     spanProps?: DefaultSpanPropsType // пропсы для спана
 }
@@ -31,22 +33,27 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
     const {children, onDoubleClick, className, ...restSpanProps} = spanProps || {}
 
     const onEnterCallback = () => {
+
+
+         setEditMode(false)
         // setEditMode() // выключить editMode при нажатии Enter
 
-        onEnter && onEnter()
+                   onEnter && onEnter()
     }
     const onBlurCallback = (e: React.FocusEvent<HTMLInputElement>) => {
         // setEditMode() // выключить editMode при нажатии за пределами инпута
-
+         setEditMode(false)
         onBlur && onBlur(e)
     }
     const onDoubleClickCallBack = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
         // setEditMode() // включить editMode при двойном клике
 
+        setEditMode(true)
+
         onDoubleClick && onDoubleClick(e)
     }
 
-    const spanClassName = `${'сделать красивый стиль для спана'} ${className}`
+    const spanClassName = `${s.superSpan} ${className ? className : ''}`
 
     return (
         <>
@@ -56,6 +63,7 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
                         autoFocus // пропсу с булевым значением не обязательно указывать true
                         onBlur={onBlurCallback}
                         onEnter={onEnterCallback}
+
 
                         {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
                     />
